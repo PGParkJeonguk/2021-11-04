@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript/string.html</title>
+</head>
+
+<body>
+    <script>
+        // var str = "hello , world"
+        // str[0] = 'T';
+        // var result = str.slice(0,4) //hell
+        // result = str.substr(0,5)    //hello,
+        // result = str.substr(5,3)
+        // result = str.slice(-5, -1);
+
+        // let newStr = str.replace('hello' , 'nice');
+        // newStr = str.toLowerCase();
+        // console.log(newStr);
+
+        // str = new String("hello world")
+        // console.log(typeof str)
+        // var strs = str.split(',')
+        // console.log(strs[1])
+
+        // let mins = ['950101-1234567', '970202-2345678', '0101123456789', '020202 4567890']
+        // var gen = '남자'
+        // var gen2 = '여자'
+        // function checkGender(num) {
+        //     if (num == 0) {
+        //         let result = mins[0].slice(-7, -6);
+        //         console.log(result);
+        //         if(result==1){
+        //             console.log(gen)
+        //         }
+        //     }else if(num == 1){
+        //         let result = mins[1].slice(-7, -6);
+        //         console.log(result);
+        //         if(result==2){
+        //             console.log(gen2)
+        //         }
+        //     }else if(num == 2){
+        //         let result = mins[2].slice(-7, -6);
+        //         console.log(result);
+        //         if(result==3){
+        //             console.log(gen)
+        //         }
+        //     }else if(num == 3){
+        //         let result = mins[3].slice(-7, -6);
+        //         console.log(result);
+        //         if(result == 4){
+        //             console.log(gen2)
+        //         }
+        //     }else{
+        //         let result = 0
+        //     }
+        // }
+        // checkGender(0);
+        // checkGender(1);
+        // checkGender(2);
+        // checkGender(3);
+        let mins = ['950101-1234567', '970202-2345678', '0101123456789', '020202 4567890']
+        function checkGender(min) {
+            let newMin = min.replace('-', '').replace(' ', '')
+            let gen = newMin.charAt(6);
+            // if (isNaN(gen) || gen == '') {
+            //     gen = min.charAt(7)`
+            // }
+            if (gen % 2 == '1') {
+                return 'M';
+            } else {
+                return 'F';
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript/date.html</title>
+    <style>
+        th
+        {
+            width: 1200px;
+            height: 50px;
+            padding: 1px;
+            font-size: 40px;
+
+        }
+
+        td:not(:empty){
+            width: 1200px;
+            height: 100px;
+            padding: 1px;
+            font-size: 30px;
+            vertical-align: top;
+            cursor: pointer;
+        }
+
+        td:not(:empty):hover{
+            background-color: yellow;
+        }
+        
+
+        ul {
+            font-size: 15px;
+            background-color: yellowgreen;
+        }
+
+        li {
+            background-color: violet;
+        }
+
+        tr>th:nth-child(1),
+        tr>td:nth-child(1) {
+            background-color: red;
+            color: white;
+        }
+
+        tr>th:nth-child(7),
+        tr>td:nth-child(7) {
+            background-color: blue;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="number" naem="year" id="year" value="2021">
+    <select name="month" id="month" value="11" onchange="showCalendar()">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+        <option value="11">11</option>
+        <option value="12">12</option>
+    </select>
+    <div id="showContent"></div>
+    <script>
+        let today = new Date();
+        let year = today.getFullYear();
+        let month = today.getMonth(); //1월 12월까지를  0~ 11로 표현
+
+        function createCalendar(year, month) {
+            //기존정보가 있으면 지우고...
+            let content = document.querySelector('#showContent')
+            let cnt = content.childNodes.length;
+            for (let i = 0; i < cnt; i++) {
+                console.log(i, ',', content.children[0])
+                content.childNodes[0].remove(); // 0 , 1
+            }
+
+            //year = 2021, month = 10
+            let today = new Date();
+            today.setFullYear(year)
+            today.setMonth(month)
+            today.setDate(1);
+            console.log(today)
+            // 첫날: 무슨요일? , 마지막 날도 알아야해
+            let firstDay, lastDate;
+            firstDay = today.getDay(); // 요일정보
+            let lastDay = new Date(year, month + 1, 0) //마지막날 계산
+            lastDate = lastDay.getDate();
+            console.log(firstDay, lastDate); //요일정보, 말일정보.
+
+            // 1일 위치...
+            let h3 = document.createElement('h3')
+            h3.innerHTML = year + '년' + (month + 1) + '월';
+            document.getElementById('showContent').appendChild(h3)
+            let result = createTable(firstDay, lastDate)
+            document.getElementById('showContent').appendChild(result);
+
+
+        }
+
+        function createTable(firstDay, lastDate) {
+
+            let days = ["Sun", "Mon", "Tus", "Wed", "Thu", "Fri", "Sat"];
+            let table, thead, tbody, tr, td;
+            table = document.createElement('table');
+            table.setAttribute('border', '1')
+            thead = document.createElement('thead');
+            tbody = document.createElement('tbody');
+            table.appendChild(thead);
+            table.appendChild(tbody);
+            //thead
+            tr = document.createElement('tr');
+            thead.appendChild(tr)
+            for (let day of days) {
+                td = document.createElement('th');
+                td.innerHTML = day;
+                tr.appendChild(td);
+
+            }
+            //tbody
+            tr = document.createElement('tr');
+            tbody.appendChild(tr);
+            for (let i = 0; i < firstDay; i++) {
+                td = document.createElement('td');
+                tr.appendChild(td);
+            }
+            for (let i = 1; i <= lastDate; i++) {
+                td = document.createElement('td');
+                td.innerHTML = i;
+                td.onclick = addSchedule
+                tr.appendChild(td);
+                if ((i + firstDay) % 7 == 0) {
+                    tr = document.createElement('tr')
+                    tbody.appendChild(tr)
+                }
+                reminCnt = i + firstDay;
+            }
+
+            while (reminCnt++ % 7 != 0) {
+                td = document.createElement('td');
+                tr.appendChild(td)
+            }
+            tbody.appendChild(tr);
+            return table;
+        }
+        // createCalendar(year, month);
+        // today = new Date('1971')
+        // today.setYear('2021')
+        // today.setMonth(11)
+        // today.setDate(1)
+        // today.setHours(10)
+        // console.log(today.getDay());    // 0~6 일0월1화2수3목4금5토6
+
+        // today = new Date (1000*60*60*24*365*3);
+        // console.log(today)
+        createCalendar(year, month);
+
+        function showCalendar(year, month) {
+            let searchYear = document.getElementById('year').value;
+            let searchMonth = document.querySelector('select>option:checked').value;
+            searchYear = parseInt(searchYear);
+            searchMonth = parseInt(searchMonth) - 1;
+            console.log(searchYear, searchMonth)
+            createCalendar(searchYear, searchMonth);
+        }
+
+
+
+        function addSchedule() {
+            let result = window.prompt('스케줄을 입력하세요>>>>>>>');
+            if (!result) {
+                return;
+            }
+            let ul = document.createElement('ul')
+            let li = document.createElement('li')
+
+            let text = document.createTextNode(result);
+            ul.appendChild(li)
+            li.appendChild(text);
+            this.appendChild(ul);
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>class1.js</title>
+    <!-- <script src="class1.js"></script> -->
+</head>
+
+<body>
+    <div id="add">
+        학번:<input type="text" id="studentNo"><br>
+        이름:<input type="text" id="studentName"><br>
+        점수:<input type="number" id="score"><br>
+        학년:<input type="number" id="grade"><br>
+        <button id="btn">추가</button>
+    </div>
+
+    <script>
+        class Student {
+            constructor(studentNo, studentName, score, grade) {
+                this.studentNo = studentNo;
+                this.studentName = studentName;
+                this.score = score;
+                this.grade = grade;
+            }
+            getInfoByDom() {
+                let tr = document.createElement('tr')
+                let td = document.createElement('td')
+                td.innerHTML = this.studentNo;
+                let td2 = document.createElement('td')
+                td2.innerHTML = this.studentName;
+                let td3 = document.createElement('td')
+                td2.innerHTML = this.score;
+                let td4 = document.createElement('td')
+                td2.innerHTML = this.grade;
+                tr.append(td, td2, td3, td4);
+
+            }
+            getRowByTr() {
+                let tr = document.createElement('tr')
+                tr.appendChild(this.getStudentNoByTd())
+                tr.appendChild(this.getStudentNameByTd())
+                tr.appendChild(this.getScordByTd())
+                tr.appendChild(this.getGradeByTd())
+                return tr;
+            }
+            getStudentNoByTd() {
+                let td = document.createElement('td')
+                td.innerHTML = this.studentNo;
+                return td
+            }
+            getStudentNameByTd() {
+                let td = document.createElement('td')
+                td.innerHTML = this.studentName;
+                return td
+            }
+            getScordByTd() {
+                let td = document.createElement('td')
+                td.innerHTML = this.score
+                return td
+            }
+            getGradeByTd() {
+                let td = document.createElement('td')
+                td.innerHTML = this.grade
+                return td
+            }
+
+
+        }
+        document.write(
+            '<table border = "1" id = "tbl"><thead><tr><th>학번</th><th>이름</th><th>점수</th><th>학년</th><tr></thead></table>'
+            )
+        document.getElementById('btn').onclick = function () {
+            let studentNo = document.getElementById('studentNo').value
+            let studentName = document.getElementById('studentName').value
+            let score = document.getElementById('score').value
+            let grade = document.getElementById('grade').value
+            let s1 = new Student(studentNo, studentName, score, grade)
+            document.getElementById("tbl").appendChild(s1.getRowByTr());
+        }
+    </script>
+</body>
+
+</html>

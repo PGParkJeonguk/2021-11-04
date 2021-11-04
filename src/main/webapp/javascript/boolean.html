@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript/boolean.html</title>
+</head>
+
+<body>
+    <script>
+        const letters = new Set(["a", "b", "c"]);
+        letters.add('a');
+        letters.add('b');
+        letters.add('c');
+        letters.add('d');
+        letters.add('e');
+        letters.add('e');
+        letters.add('e');
+        letters.add('e');
+
+
+        letters.delete('d');
+
+        letters.forEach(function (a, b, c) {
+            console.log(a, b, c)
+        });
+
+        console.log(letters.values());
+
+        let result = letters.values();
+        console.log(letters.size);
+
+        for (let val of result) {
+            console.log(result);
+        }
+
+        const fruits = new Map(); //key : value => entry
+        fruits.set('apple', 500)
+        fruits.set('banana', 400)
+        let price = fruits.get('apple');
+        console.log(price)
+
+        let frutiAry = []
+        for (let ent of fruits.entries()) {
+            console.log(ent); //entry 타이 => ['key','value']
+            frutiAry.push(ent)
+        }
+        console.log(frutiAry); //[['apple',500], ['banana', 400]]
+
+        fruits.forEach(function (val, key, map) {
+            console.log(val, key, map)
+        })
+
+        let ary = []    //new Array();
+        let obj = {}    //new Object();
+        let reg = /w3schools/i;  //new RegExp();   i는 대소문자 구분 안하겠다.
+        console.log(typeof(reg))
+
+        let text = "Visit W3Schools!";
+        let n = text.search(reg)
+        console.log(n)
+
+        text = "Visit Microsoft";
+        let result2 = text.replace(/microsoft/i,"W3Schools")
+        console.log(result2)
+        reg = /^[0-9a-z]/
+    </script>
+</body>
+
+</html>

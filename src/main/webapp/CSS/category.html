@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css/category.html</title>
+    <style>
+        * {
+            box-sizing: border-box 3px;
+            border-radius: 10px;
+            overflow: auto;
+            border-color: black;
+
+        }
+
+        header {
+            margin: 0.5%;
+            background-color: gray;
+            height: 10vh;
+        }
+
+        nav {
+            background-color: white;
+            float: left;
+            height: 75vh;
+            width: 20%;
+            border: black 2px solid;
+            margin-top: 3%;
+        }
+
+        section {
+            background-color: white;
+            height: 75vh;
+            width: 75%;
+            float: right;
+            border: black 2px solid;
+            margin-top: 3%;
+        }
+
+        #page {
+            float: left;
+            font-size: 30px;
+            color: white;
+        }
+
+        #right {
+            float: right;
+            color: white;
+        }
+
+        table {
+            border: black 2px solid;
+            background-color: white;
+            float: left;
+            height: 10vh;
+            width: 80%;
+            position: relative;
+            text-align: center;
+            margin-left: 8%;
+            margin-top: 0%;
+            margin-bottom: 0%;
+            border-radius: 2px;
+        }
+
+        #navs {
+            border-color: white;
+            background-color: white;
+            float: left;
+            height: 10vh;
+            width: 80%;
+            position: relative;
+            font-size: 30px;
+            text-align: center;
+            margin-top: 25%;
+            margin-bottom: 25%;
+            margin-left: 8%;
+            margin-top: 10%;
+        }
+
+        #sectionfooter {
+            background-color: gray;
+            height: 7vh;
+            width: 20%;
+            position: relative;
+            float: left;
+            border: black 2px solid;
+            font-size: 34px;
+            text-align: center;
+            margin-bottom: 45px;
+            margin-left: 2%;
+            margin-top: 3%;
+        }
+
+        #big {
+            border-radius: 0px;
+            background-color: white;
+            float: none;
+            height: auto;
+            border: black 2px solid;
+            padding: 1px;
+        }
+
+        #submit {
+            font-size: 34px;
+            text-align: center;
+            position: relative;
+            border: gray;
+            background-color: gray;
+        }
+
+        table::selection {
+            background-color: skyblue;
+        }
+
+        #name {
+            background-color: white;
+            border-radius: 0px;
+            border: black 2px solid;
+            height: 10%;
+            width: 93%;
+            margin-left: 2%;
+            margin-top: 3%;
+            font-size: 35px;
+        }
+
+        #subject {
+            vertical-align: top;
+            padding-top: 5;
+            float: left;
+            background-color: white;
+            height: 47vh;
+            width: 93%;
+            border: black 2px solid;
+            position: relative;
+            border-radius: 0px;
+            margin-left: 2%;
+            margin-top: 3%;
+            font-size: 30px;
+        }
+        button{
+            font-size: 20px;
+            background-color: grey;
+            border: grey;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <section id="big">
+        <header>
+            <div><br></div>
+            <div id="page">Codevang's Page</div>
+            <div id="right">
+                <button type="button" onclick="alert('홈')">홈</button>
+                <button type="button" onclick="alert('로그아웃')">로그아웃</button>
+                <button type="button" onclick="alert('회원정보')">회원정보</button>
+            </div>
+        </header>
+        <nav>
+            <section id="navs">Category</section>
+
+            <table>
+                <tr>
+                    <td>게시판</td>
+                </tr>
+            </table>
+            <table>
+                <tr>
+                    <td>일반게시판</td>
+                </tr>
+            </table>
+            <table>
+                <tr>
+                    <td>코딩게시판</td>
+                </tr>
+            </table>
+        </nav>
+        <section>
+            <input id="name" type="text">
+            <input id="subject" type="text">
+            <footer id="sectionfooter"><button id="submit" type="button" onclick="alert('제출하기')">제출하기</button></footer>
+        </section>
+    </section>
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript/event.html</title>
+</head>
+
+<body>
+    <button>클릭</button>
+    <p>클릭</p>
+    <script>
+        let btn = document.querySelector('button')
+        btn = document.getElementById('btn'); // 어떤 요소를 가지고 오겠습니다.
+        console.log(btn);
+        btn.onclick = function () {
+            // window.alert('클릭됨.')
+            let pTag = document.querySelector('p');
+            pTag.innerHTML = 'click';
+
+        }
+        btn.onmouseover = function () {
+            this.style.backgroundColor = 'yellow';
+        }
+        btn.onmouseout = function(){
+            this.style.backgroundColor = '';
+        }
+    </script>
+
+</body>
+
+</html>

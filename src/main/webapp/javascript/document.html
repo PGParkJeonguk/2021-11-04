@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript/document.html</title>
+</head>
+<body>
+    <script>
+        var n1 = 20;    //number
+        n1 = "20"; //string
+        n1 = true; //boolean
+        n1 = null;
+        n1 = {
+            name: 'Hong',
+            age: 20
+        }
+        
+        var ary =[n1,'apple', 20, true]; //다른 타입도 같은 배열에 넣을수 있음. - 사용할때 고려할게 많아서 같은종류 써라.
+        for(var val of ary){
+            console.log(val);
+            // document.write(val);// =>개판남
+        }
+
+        window.document.write(n1.name);
+
+        document.write("<p>" + n1['age'] + "</p>");
+
+        console.log(n1);
+
+        function sum(){
+            var n1 = 10;
+            var n2 = 20;
+            console.log(n1 + n2);
+        }
+        sum();
+
+        {
+            let n2 = 'val'; //블럭단위로 선언할때 쓰는 키워드 let =>블럭 밖으로 나가면 메모리에서 삭제.
+            var n1 = 'new'; //블럭안에서 선언해도 var로 선언하면 전역변수가 됨.
+        }
+
+        {
+            let n2 = '20'; //변수 선언
+            n2 = 20;
+            n2 = true;
+
+            const n3 = 30; //상수 선언
+            // n3 = 40;    //값을 변경 불가.
+
+            const obj ={
+                name: 'hong',
+                age: 20
+            }
+            console.log(obj);
+            // obj = {
+            //     name='hwang',
+            //     age:33
+            // }        => 얘는 불가.
+            obj.name = 'Hwang';
+            obj['age'] = '23';
+
+            console.log(obj);
+        }
+
+        function showInfo(){
+            console.log('Hellow world');
+        }
+        console.log(showInfo);
+
+        let neFunc = showInfo;
+        console.log(neFunc);
+        neFunc();
+
+        let showAnother = function(){
+            console.log('nice,world')
+        }
+        console.log(showAnother)
+        showAnother();
+    </script>
+</body>
+</html>

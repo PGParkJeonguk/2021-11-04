@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="mystyle.css">
+    <title>board.html</title>
+    <style>
+        #mainSearch>input {
+            width: 100px;
+            height: 30px;
+            margin: 4px 40%;
+            background-color: blue;
+            color: white;
+            font-size: 20px;
+        }
+
+        td {
+            border: solid black 2px;
+        }
+
+        th {
+            border: solid black 2px;
+            text-align: center;
+        }
+
+        tr>td:nth-child(1) {
+            background-color: yellow;
+        }
+
+        tr>td>button:nth-of-type(1) {
+            background-color: aqua;
+        }
+
+        tr>td>button:nth-last-child(1) {
+            background-color: blueviolet;
+        }
+
+        td.attancement {
+            color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <table style="border: solid blue 3px;">
+        <tr>
+            <div>
+                <th colspan="5">게시글 검색</th>
+            </div>
+        </tr>
+        <tr>
+            <td>게시글등록일</td>
+            <td colspan="5">
+                <input type="date" name="today">
+                <input type="date" name="today">
+                <button type="button" onclick="alert('오늘')">오늘</button>
+                <button type="button" onclick="alert('어재')">어제</button>
+                <button type="button" onclick="alert('3일')">3일</button>
+                <button type="button" onclick="alert('7일')">7일</button>
+                <button type="button" onclick="alert('한달')">한달</button>
+                <button type="button" onclick="alert('초기화')">초기화</button>
+
+
+
+            </td>
+        </tr>
+        <tr>
+            <td>게시판선택</td>
+            <td colspan="5">
+                <select name="boardselect">
+                    <option value="1" selected>상품후기게시판</option>
+                    <option value="2">상품선물게시판</option>
+                </select>
+                <select name="Menuselect">
+                    <option value="1" selected>전체</option>
+                    <option value="2">일부</option>
+                </select>
+                <select name="spamselect">
+                    <option value="1" selected>스팸글포함(전체)</option>
+                    <option value="2">스팸글 제외</option>
+                </select>
+                <input type="radio" name="product" value="all">모두
+                <input type="radio" name="product1" value="exhibition">진열
+                <input type="radio" name="product2" value="non_exhibition">미진열
+            </td>
+        </tr>
+        <tr>
+            <td>답변 댓글여부</td>
+            <td>
+                <select name="commentselect">
+                    <option value="1" selected>전체</option>
+                    <option value="2">답변만있는경우</option>
+                    <option value="3">댓글만있는경우</option>
+                    <option value="4">둘다없는경우</option>
+                </select>
+            </td>
+            <td>첨부파일여부</td>
+            <td class=attancement colspan="3">
+                <input type="radio" name="attachments" value="all">전체
+                <input type="radio" name="attachments1" value="attachments">있음
+                <input type="radio" name="attachments2" value="non_attachments">없음
+            </td>
+        </tr>
+        <tr>
+            <td>게시글검색</td>
+            <td>
+                <select name="boardsearch">
+                    <option value="1" selected>이름</option>
+                    <option value="2">상품</option>
+                    <option value="3">후기</option>
+                    <option value="4">가격</option>
+                </select>
+                <input type="text">
+            </td>
+            <td>노출조건선택 </td>
+            <td colspan="3">
+                <select name="exposureselect">
+                    <option value="1" selected>전체게시글</option>
+                    <option value="2">답변이 있는 게시글</option>
+                    <option value="3">댓글이 있는 게시글</option>
+                </select>
+                <input type="checkbox" name="exposure" value="exposure">답변글노출<br>
+            </td>
+
+        </tr>
+        <tr>
+            <td>상품명검색</td>
+            <td colspan="5">
+                <select name="productseach">
+                    <option value="1" selected>이름</option>
+                    <option value="2">상품</option>
+                    <option value="3">후기</option>
+                    <option value="4">가격</option>
+                </select>
+                <input type="text">
+                <button type="button" onclick="alert('상품검색')">상품검색</button>
+                <button type="button" onclick="alert('비우기')">비우기</button>
+                (상품명 게시글 검색은 상품QNA,상품 리뷰게시판 선택시 사용가능)
+            </td>
+        </tr>
+        <tr>
+            <td>별점조건</td>
+            <td colspan="5">
+                <input type="radio" name="star" value="all">전체리뷰
+                <select name="shipping">
+                    <option value="1" selected>배송</option>
+                    <option value="2">답변이 있는 게시글</option>
+                    <option value="3">댓글이 있는 게시글</option>
+                </select>
+                <input type="radio" name="star" value="all">★★★★★
+                <input type="radio" name="star" value="all4">★★★★
+                <input type="radio" name="star" value="all3">★★★
+                <input type="radio" name="star" value="all2">★★
+                <input type="radio" name="star" value="all1">★
+                리뷰게시판에서는 검색가능합니다.
+            </td>
+        </tr>
+        <tr>
+            <td>회원 구분</td>
+
+            <td>
+                <input type="radio" name="cust" value="cusall">전체
+                <input type="radio" name="cust" value="cus">회원
+                <input type="radio" name="cust" value="non_cus">비회원
+            </td>
+            <td>정렬</td>
+            <td>
+                <input type="radio" name="rullall" value="rullall">전체
+                <input type="radio" name="rullall" value="web">웹
+                <input type="radio" name="rullall" value="mob">모바일
+                <input type="radio" name="rullall" value="naverpay">네이버페이
+            </td>
+
+
+
+        </tr>
+        <tr>
+            <td>목록추천조건</td>
+
+            <td colspan="5">
+                <input type="radio" name="chose" value="all">선택안함
+                <input type="radio" name="chose" value="all">추천목록1
+                <input type="radio" name="chose" value="all">추천목록2
+                <input type="radio" name="chose" value="all">추천목록3
+                (리뷰/QNA 게시판에서만 검색 가능합니다.)
+            </td>
+
+        </tr>
+        <tr>
+            <td>게시판URL</td>
+            <td>
+                <input type="text"></input>
+                <button type="button" onclick="alert('주소복사')">주소복사</button>
+                <button type="button" onclick="alert('미리보기')">미리보기</button>
+            </td>
+            <td>정렬</td>
+            <td colspan="3">
+                <input type="radio" name="board" value="all">게시글순
+                <input type="radio" name="board" value="all">글등록순
+            </td>
+        </tr>
+        <tr>
+            <td>적립금</td>
+            <td colspan="5">
+                <input type="radio" name="cus" value="all">전체
+                <input type="radio" name="cus" value="all">지급
+                <input type="radio" name="cus" value="all">미지급(비회원제외)
+            </td>
+        </tr>
+    </table>
+    <table>
+        <div id="mainSearch">
+            <input type="submit" value="검색▶">
+        </div>
+    </table>
+</body>
+
+</html>

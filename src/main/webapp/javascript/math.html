@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript/math.html</title>
+</head>
+
+<body>
+    <script>
+        let num = 3.5
+        let result = Math.round(num);
+        let result2 = Math.floor(num)
+        let num2 = -3.2
+        let result3 = Math.trunc(num2)
+        let result4 = Math.sign(num2)
+        let result5 = Math.pow(3, 2);
+        let result6 = Math.sqrt(64);
+        let result7 = Math.abs(-64);
+        let result8 = Math.floor(Math.random() * 100)
+        console.log(result);
+        console.log(result2)
+        console.log(result3)
+        console.log(result4)
+        console.log(result5)
+        console.log(result6)
+        console.log(result7)
+        console.log(result8)
+
+        let randomary = []
+        let randAry = [];
+        for (let i = 0; i < 10; i++) {
+            result = Math.floor(Math.random() * 10);
+            randAry.push(result);
+        }
+        console.log(randAry);
+
+        let notDupAry = []
+
+        if(notDupAry.some(function(a,b){
+            return a == val;
+        })){
+            return;
+        }
+
+        // randAry.forEach(function(val, ind){
+        //     let findVal = notDupAry.find(function (a,b){
+        //         return a == val
+        //     })
+        //     console.log(findVal)
+        //     if(!findVal){
+        //         notDupAry.push(val)
+        //     }
+        // })
+        console.log(notDupAry.sort())
+    </script>
+
+
+</body>
+
+</html>
